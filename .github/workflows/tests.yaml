@@ -24,12 +24,12 @@ jobs:
       matrix:
         os: ["Ubuntu", "Windows", "macOS"]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Set up stable environment
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.4
+          php-version: 8.5
           coverage: none
 
       - name: 'Test: Sitemaps'
@@ -107,7 +107,7 @@ jobs:
         uses: ./
         env:
           # renovate: datasource=github-releases depName=eliashaeussler/cache-warmup
-          CACHE_WARMUP_VERSION: '4.3.2'
+          CACHE_WARMUP_VERSION: '5.0.1'
         with:
           version: $CACHE_WARMUP_VERSION
           sitemaps: https://cache-warmup.dev/sitemap.xml
