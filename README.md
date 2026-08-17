@@ -2,8 +2,7 @@
 
 # Cache Warmup GitHub Action
 
-[![CGL](https://img.shields.io/github/actions/workflow/status/eliashaeussler/cache-warmup-action/cgl.yaml?label=cgl&logo=github)](https://github.com/eliashaeussler/cache-warmup-action/actions/workflows/cgl.yaml)
-[![Tests](https://img.shields.io/github/actions/workflow/status/eliashaeussler/cache-warmup-action/tests.yaml?label=tests&logo=github)](https://github.com/eliashaeussler/cache-warmup-action/actions/workflows/tests.yaml)
+[![CI](https://img.shields.io/github/actions/workflow/status/eliashaeussler/cache-warmup-action/ci.yaml?label=CI&logo=github)](https://github.com/eliashaeussler/cache-warmup-action/actions/workflows/ci.yaml)
 [![Latest version](https://img.shields.io/github/v/tag/eliashaeussler/cache-warmup-action?sort=semver&filter=v*&logo=github&label=latest)](https://github.com/eliashaeussler/cache-warmup-action/releases/latest)
 
 </div>
@@ -33,16 +32,17 @@ jobs:
   cache-warmup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Set up environment
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
         with:
-          php-version: 8.3
+          php-version: 8.5
           coverage: none
 
       - name: Run cache warmup
-        uses: eliashaeussler/cache-warmup-action@v1
+        uses: eliashaeussler/cache-warmup-action@b2f60a92f2d12eadd36d6387d4a8131b69ef9ed9 # 2.0.0
         with:
           version: latest
           sitemaps: |
